@@ -48,7 +48,6 @@ def separate_data(data):
     print(Age)
     print(Gender)
     print(TSH)
-    
 
 
 data = read_file()

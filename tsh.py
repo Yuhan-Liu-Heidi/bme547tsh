@@ -50,11 +50,11 @@ def sort_name(name):
     """Separate data into first/last name
 
     Args:
-        name(list): list of patient names
+        name(list): patient names
 
     Returns:
-        FName(list): list of first names
-        LName(lish): list of last names
+        FName(list): first names
+        LName(lish): last names
     """
     FName = []
     LName = []
@@ -65,7 +65,42 @@ def sort_name(name):
     return FName, LName
 
 
+def sort_tsh(tsh):
+    """Sort TSH result and make diagnosis
+ 
+    Hyperthyroidism - any of TSH results < 1.0;
+    Hypothyroidism - any of TSH results > 4.0;
+    Normal thyroid function - other;
+    Assuming no single patient will have test results
+    both above 4.0 and below 1.0;
+    Number of results may vary.
+
+    Args:
+        tsh(list): TSH test results
+
+    Returns:
+        TSH(list): TSH results without 'TSH' string
+        diagnosis(str): result of diagnosis
+    """
+    TSH = []
+    diagnosis = []
+    for item in tsh:
+        n = str(item).split(',')
+        n.remove('TSH')
+        n.sort()
+        TSH.append(n)
+        diag = 'Normal thyroid function'
+        if float(n[0]) < 1.000:
+            diag = 'Hypothyroidism'
+        elif float(n[-1]) > 4.000:
+            diag = 'Hyperthyroidism'
+        diagnosis.append(diag)
+    return TSH, diagnosis
+
+
 data = read_file()
 Name, Age, Gender, TSH = separate_data(data)
 FName, LName = sort_name(Name)
-print(FName, LName)
+TSH, diagnosis = sort_tsh(TSH)
+print(TSH)
+print(diagnosis)

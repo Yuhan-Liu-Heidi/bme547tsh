@@ -107,12 +107,25 @@ def save_file(dic):
     json.dump(dic, out_file)
     out_file.close()
 
-data = read_file()
-Name, Age, Gender, TSH = separate_data(data)
-FName, LName = sort_name(Name)
-TSH, diagnosis = sort_tsh(TSH)
-my_dictionary = {
-                "First name": "Heidi",
-                "Last name": "Liu"
-                 }
-save_file(my_dictionary)
+
+def main():
+    data = read_file()
+    Name, Age, Gender, TSH = separate_data(data)
+    FName, LName = sort_name(Name)
+    TSH, diagnosis = sort_tsh(TSH)
+    for i in range(len(FName)):
+        dic_patient = {
+            "First name": FName[i],
+            "Last name": LName[i],
+            "Age": Age[i],
+            "Gender": Gender[i],
+            "Diagnosis": diagnosis[i],
+            "TSH": TSH[i]
+        }
+        print("Finished {}/{}".format(i + 1, len(FName)))
+        save_file(dic_patient)
+    print("Task finished")
+
+
+if __name__ == "__main__":
+    main()

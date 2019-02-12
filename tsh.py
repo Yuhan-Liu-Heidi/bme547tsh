@@ -19,21 +19,20 @@ def separate_data(data):
         data(str): test data
 
     Returns:
-        info(dictionary): information of patients
+        Name(list): name
+        Age(list): age
+        Gender(list): gender
+        TSH(list): TSH results
     """
     Data = data.split('\n')
-    D = {
-            'Name': '',
-            'Age': '',
-            'Gender': '',
-            'TSH result': ''
-        }
     Name = []
     Age = []
     Gender = []
     TSH = []
+    patient_num = 0
     for i, item in enumerate(Data):
         if item != 'END':
+            patient_num += 1
             if i % 4 == 0:
                 Name.append(item)
             elif i % 4 == 1:
@@ -44,11 +43,29 @@ def separate_data(data):
                 TSH.append(item)
         else:
             break
-    print(Name)
-    print(Age)
-    print(Gender)
-    print(TSH)
+    return Name, Age, Gender, TSH
+
+
+def sort_name(name):
+    """Separate data into first/last name
+
+    Args:
+        name(list): list of patient names
+
+    Returns:
+        FName(list): list of first names
+        LName(lish): list of last names
+    """
+    FName = []
+    LName = []
+    for item in name:
+        n = str(item).split()
+        FName.append(n[0])
+        LName.append(n[-1])
+    return FName, LName
 
 
 data = read_file()
-separate_data(data)
+Name, Age, Gender, TSH = separate_data(data)
+FName, LName = sort_name(Name)
+print(FName, LName)

@@ -67,7 +67,7 @@ def sort_name(name):
 
 def sort_tsh(tsh):
     """Sort TSH result and make diagnosis
- 
+
     Hyperthyroidism - any of TSH results < 1.0;
     Hypothyroidism - any of TSH results > 4.0;
     Normal thyroid function - other;
@@ -98,9 +98,34 @@ def sort_tsh(tsh):
     return TSH, diagnosis
 
 
-data = read_file()
-Name, Age, Gender, TSH = separate_data(data)
-FName, LName = sort_name(Name)
-TSH, diagnosis = sort_tsh(TSH)
-print(TSH)
-print(diagnosis)
+def save_file(dic):
+    import json
+    fname = dic['First name']
+    lname = dic['Last name']
+    file_name = str('{}-{}.json'.format(fname, lname))
+    out_file = open(file_name, "w")
+    json.dump(dic, out_file)
+    out_file.close()
+
+
+def main():
+    data = read_file()
+    Name, Age, Gender, TSH = separate_data(data)
+    FName, LName = sort_name(Name)
+    TSH, diagnosis = sort_tsh(TSH)
+    for i in range(len(FName)):
+        dic_patient = {
+            "First name": FName[i],
+            "Last name": LName[i],
+            "Age": Age[i],
+            "Gender": Gender[i],
+            "Diagnosis": diagnosis[i],
+            "TSH": TSH[i]
+        }
+        print("Finished {}/{}".format(i + 1, len(FName)))
+        save_file(dic_patient)
+    print("Task finished")
+
+
+if __name__ == "__main__":
+    main()

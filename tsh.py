@@ -5,7 +5,7 @@ def read_file():
         None
 
     Returns:
-        data(str): test data
+        data (str): test data
     """
     f = open("test_data.txt", "r")
     data = f.read()
@@ -16,13 +16,13 @@ def separate_data(data):
     """Separate data into different patients
 
     Args:
-        data(str): test data
+        data (str): test data
 
     Returns:
-        Name(list): name
-        Age(list): age
-        Gender(list): gender
-        TSH(list): TSH results
+        Name (list): name
+        Age (list): age
+        Gender (list): gender
+        TSH (list): TSH results
     """
     Data = data.split('\n')
     Name = []
@@ -50,11 +50,11 @@ def sort_name(name):
     """Separate data into first/last name
 
     Args:
-        name(list): patient names
+        name (list): patient names
 
     Returns:
-        FName(list): first names
-        LName(lish): last names
+        FName (list): first names
+        LName (lish): last names
     """
     FName = []
     LName = []
@@ -76,11 +76,11 @@ def sort_tsh(tsh):
     Number of results may vary.
 
     Args:
-        tsh(list): TSH test results
+        tsh (list): TSH test results
 
     Returns:
-        TSH(list): TSH results without 'TSH' string
-        diagnosis(str): result of diagnosis
+        TSH (list): TSH results without 'TSH' string
+        diagnosis (str): result of diagnosis
     """
     TSH = []
     diagnosis = []
@@ -99,6 +99,14 @@ def sort_tsh(tsh):
 
 
 def save_file(dic):
+    """Save dictionary to JSON file
+
+    Args:
+        dic: Dictionary of assembled individual info
+
+    Returns:
+        None
+    """
     import json
     fname = dic['First name']
     lname = dic['Last name']
@@ -109,6 +117,21 @@ def save_file(dic):
 
 
 def main():
+    """Main function
+
+    Use modules to read TSH test data from file, convert
+    into lists of information (one information per list,
+    in the same order).
+    A dictionary is generated from the lists for each
+    patient, and then saved into a JSON file.
+    Print the progress and mark when finished.
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     data = read_file()
     Name, Age, Gender, TSH = separate_data(data)
     FName, LName = sort_name(Name)

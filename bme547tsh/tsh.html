@@ -1,0 +1,225 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>tsh module &#8212; TSH Test Data Conversion  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-tsh">
+<span id="tsh-module"></span><h1>tsh module<a class="headerlink" href="#module-tsh" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="tsh.main">
+<code class="descclassname">tsh.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsh.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main function</p>
+<p>Use modules to read TSH test data from file, convert
+into lists of information (one information per list,
+in the same order).
+A dictionary is generated from the lists for each
+patient, and then saved into a JSON file.
+Print the progress and mark when finished.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>None</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="tsh.read_file">
+<code class="descclassname">tsh.</code><code class="descname">read_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tsh.read_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read data from test_data.txt</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>None</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">test data</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">data (str)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="tsh.save_file">
+<code class="descclassname">tsh.</code><code class="descname">save_file</code><span class="sig-paren">(</span><em>dic</em><span class="sig-paren">)</span><a class="headerlink" href="#tsh.save_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save dictionary to JSON file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dic</strong> – Dictionary of assembled individual info</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="tsh.separate_data">
+<code class="descclassname">tsh.</code><code class="descname">separate_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#tsh.separate_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate data into different patients</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>str</em>) – test data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">name
+Age (list): age
+Gender (list): gender
+TSH (list): TSH results</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Name (list)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="tsh.sort_name">
+<code class="descclassname">tsh.</code><code class="descname">sort_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#tsh.sort_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate data into first/last name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>list</em>) – patient names</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">first names
+LName (lish): last names</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">FName (list)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="tsh.sort_tsh">
+<code class="descclassname">tsh.</code><code class="descname">sort_tsh</code><span class="sig-paren">(</span><em>tsh</em><span class="sig-paren">)</span><a class="headerlink" href="#tsh.sort_tsh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort TSH result and make diagnosis</p>
+<p>Hyperthyroidism - any of TSH results &lt; 1.0;
+Hypothyroidism - any of TSH results &gt; 4.0;
+Normal thyroid function - other;
+Assuming no single patient will have test results
+both above 4.0 and below 1.0;
+Number of results may vary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tsh</strong> (<em>list</em>) – TSH test results</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">TSH results without ‘TSH’ string
+diagnosis (str): result of diagnosis</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">TSH (list)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">TSH Test Data Conversion</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Yuhan Liu()[D[D [(yl556).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tsh.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

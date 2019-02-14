@@ -17,7 +17,8 @@ def test_sort_name(NameIn, NameOut):
 
 
 @pytest.mark.parametrize("tshin, tshout", [
-    (["TSH,1.1,1.2,1.5", "TSH,3.5,4,4.1"], ["Normal thyroid function", "Hyperthyroidism"]),
+    (["TSH,1.1,1.2,1.5", "TSH,3.5,4,4.1"],
+        ["Normal thyroid function", "Hyperthyroidism"]),
     (["TSH,0.8,1,2"], ["Hypothyroidism"])
 ])
 def test_sort_tsh(tshin, tshout):

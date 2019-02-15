@@ -21,3 +21,5 @@ In TSH data result line, no space allowed after each comma.
 Assuming there is no result contains both figures greater than 4 and figures smaller than 1.
 
 The demension of patient information must align. All of them should have four aspects of information in the order of Name - Age - Gender - TSH result.
+
+There is only one test function to test the diagnosing function. Other functions have complicated output, making it very hard to test.

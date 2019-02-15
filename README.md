@@ -23,3 +23,9 @@ Assuming there is no result contains both figures greater than 4 and figures sma
 The demension of patient information must align. All of them should have four aspects of information in the order of Name - Age - Gender - TSH result.
 
 There is only one test function to test the diagnosing function. Other functions have complicated output, making it very hard to test.
+
+## One Problem:
+
+"No build" under my travis project for this repository. However, I didn't know that my travis is not working until I read the feedback for the last assignment yesterday, and I don't think I can figure it out before deadline. I apologize for that and I will keep working on it.
+
+My guess is that it's because this repo was private and just made public today. In an attempt to fix this, I made more commits, but didn't work.
